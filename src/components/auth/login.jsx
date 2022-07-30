@@ -1,10 +1,14 @@
 
 import React from "react";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import jwtDecode from "jwt-decode";
+
 
 const Login = () => {
   function handleCallbackResponse(response) {
-    console.log("Encoded JWT ID Token" + response.credential)
+    console.log("Encoded JWT ID Token" + response.credential);
+    let userObject = jwtDecode(response.credential);
+    console.log(userObject)
   }
 
   useEffect(() => {
