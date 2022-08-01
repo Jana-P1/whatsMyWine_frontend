@@ -6,6 +6,7 @@ import * as authService from './services/authService'
 
 function App() {
   const [user, setUser] = useState(authService.getUser());
+  console.log(process.env)
 
   function handleCallbackResponse(response) {
     console.log("Encoded JWT ID Token" + response.credential);
