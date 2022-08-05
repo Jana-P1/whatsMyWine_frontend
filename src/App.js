@@ -11,7 +11,7 @@ function App() {
     console.log("Encoded JWT ID Token" + response.credential);
     let userObject = response.credential;
     console.log(userObject)
-    setUser(response.credential, authService.getGoogleUserToken())
+    setUser(userObject, authService.googleSuccessSignIn(userObject))
   }
   useEffect(() => {
     /* global google */
