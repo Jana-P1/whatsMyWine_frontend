@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import jwtDecode from 'jwt-decode';
 import NavBar from './components/NavBar/NavBar'
 import * as authService from './services/authService'
+import Login from './pages/Login/Login';
 
 function App() {
   const [user, setUser] = useState({});
@@ -30,6 +31,13 @@ function App() {
   return (
     <div className="App">
       <NavBar user={user} handleCallbackResponse={handleCallbackResponse} />
+      <Routes>
+        <Route
+          path='/login'
+          element={<Login />}
+
+        />
+      </Routes>
     </div>
   );
 }
