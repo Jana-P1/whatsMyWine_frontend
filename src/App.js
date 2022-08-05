@@ -9,7 +9,7 @@ function App() {
 
   function handleCallbackResponse(response) {
     console.log("Encoded JWT ID Token" + response.credential);
-    let userObject = response.credential;
+    let userObject = jwtDecode(response.credential);
     console.log(userObject)
     setUser(userObject, authService.googleSuccessSignIn(userObject))
   }
