@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import jwtDecode from 'jwt-decode';
+import './App.css'
 import NavBar from './components/NavBar/NavBar'
 import * as authService from './services/authService'
 import Home from './pages/Home/Home';
 import Login from './pages/Login/Login';
+
 
 function App() {
   const [user, setUser] = useState({});
@@ -30,7 +32,7 @@ function App() {
     ); google.accounts.id.prompt()
   }, [])
   return (
-    <div className="App">
+    <div>
       <NavBar user={user} handleCallbackResponse={handleCallbackResponse} />
       <Routes>
         <Route
