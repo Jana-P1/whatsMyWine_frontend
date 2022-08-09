@@ -4,6 +4,7 @@ import jwtDecode from "jwt-decode";
 
 const NavBar = ({ user, handleLogout }) => {
   console.log(user)
+  
   return ( 
     <>
       <h1>What's My Wine?</h1>
