@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import jwtDecode from 'jwt-decode';
 import './App.css'
 import NavBar from './components/NavBar/NavBar'
@@ -41,7 +41,7 @@ function App() {
         />
         <Route
           path='/login'
-          element={<Login />}
+          element={user ? <Navigate to='/' /> : <Login />}
         />
       </Routes>
     </div>
