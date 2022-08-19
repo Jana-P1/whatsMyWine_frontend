@@ -1,17 +1,10 @@
+import GoogleSignInDiv from "../../components/GoogleSignInDiv/GoogleSignInDiv";
 
-const Login = () => {
+const Login = ({ user, handleCallBackResponse }) => {
+  // 
   return ( 
     <>
-    <h1>Please login!</h1>
-    <div>
-      <div className="left">
-        <div className="loginButton">
-          <h2>Google</h2>
-        </div>
-      </div>
-
-      <div className="right"></div>
-    </div>
+    <GoogleSignInDiv user={user} handleCallBackResponse={handleCallBackResponse} />
     </>
    );
 }
