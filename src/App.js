@@ -11,6 +11,7 @@ import { UserContext } from './Context/UserContext';
 
 function App() {
   const [user, setUser] = useState(null);
+  
 
   useEffect(() => {
     /* global google */
@@ -19,9 +20,10 @@ function App() {
         client_id: `${process.env.REACT_APP_GOOGLE_CLIENT_ID}`,
         callback: handleCallbackResponse
       });
-      google.accounts.id.renderButton(
-        document.getElementById("buttonDiv"),
-        { theme: 'outline', size: 'large' }); 
+      google.accounts.id.prompt()
+    //   renderButton(
+    //     document.getElementById("buttonDiv"),
+    //     { theme: 'outline', size: 'large' }); 
     }
 }, [])
 
@@ -30,15 +32,14 @@ function App() {
     console.log("Encoded JWT ID Token" + response.credential);
     let userObject = jwtDecode(response.credential);
     console.log(userObject)
-    setUser(userObject, authService.googleLogin())
+    setUser(userObject, authService.googleLogin(response))
   }
   
   return (
     <div className='App'>
       
       
-        <NavBar user={user} handleCallbackResponse= {handleCallbackResponse} 
-        />
+        <NavBar user={user} />
         <Routes>
           <Route
             path='/'
