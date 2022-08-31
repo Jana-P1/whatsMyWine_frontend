@@ -11,28 +11,29 @@ const BASE_URL = `${process.env.REACT_APP_BACKEND_SERVER_URL}/auth`
 // const getGoogleToken = () => {
 
 // }
-function googleLogin(token)  {
-  console.log(BASE_URL)
-  fetch(`${BASE_URL}/login/success`, {
+function googleLogin()  {
+  let userLoginURL = BASE_URL + "/login/success"
+  fetch(userLoginURL, {
     method: "GET",
-    credentials: "include",
     headers: ({ 
       Accept: "application/json",
       'Content-Type': "application/json",
-      "Access-Control-Allow-Credentials": true
+      "Cross-Origin-Opener-Policy": "same-origin-allow-popups"
     }),
       
   }).then((response) => {
     if (response.status === 200) {
       return response.json()
     }
-    throw new Error ("authentication failed")
-  }).catch(err => {
-    console.log(err)
+    throw new Error("authentication failed")
   })
-  }
+  .then((resObject) => {
+    
+  })
+}
+    
 
-  export {
+export {
     googleLogin,
     // getGoogleUser
   }

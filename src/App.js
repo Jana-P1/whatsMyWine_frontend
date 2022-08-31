@@ -12,7 +12,7 @@ import { UserContext } from './Context/UserContext';
 function App() {
   const [user, setUser] = useState(null);
   
-
+  
   useEffect(() => {
     /* global google */
     window.onload = function () {
@@ -21,10 +21,7 @@ function App() {
         callback: handleCallbackResponse
       });
       google.accounts.id.prompt()
-    //   renderButton(
-    //     document.getElementById("buttonDiv"),
-    //     { theme: 'outline', size: 'large' }); 
-    }
+    };
 }, [])
 
   // Callback function for Google login
@@ -32,7 +29,8 @@ function App() {
     console.log("Encoded JWT ID Token" + response.credential);
     let userObject = jwtDecode(response.credential);
     console.log(userObject)
-    setUser(userObject, authService.googleLogin(response))
+    setUser(authService.googleLogin())
+    
   }
   
   return (
