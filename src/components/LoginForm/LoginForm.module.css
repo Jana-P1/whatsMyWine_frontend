@@ -1,0 +1,11 @@
+.loginContainer {
+  margin: 0 auto;
+  border: 2px blue solid;
+  max-width: 900px;
+  display: flex;
+}
+.close {
+  position: relative;
+  margin-left: auto;
+  
+}

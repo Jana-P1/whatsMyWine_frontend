@@ -13,25 +13,7 @@ function App() {
   const [user, setUser] = useState(null);
   
   
-  useEffect(() => {
-    /* global google */
-    window.onload = function () {
-      google.accounts.id.initialize({
-        client_id: `${process.env.REACT_APP_GOOGLE_CLIENT_ID}`,
-        callback: handleCallbackResponse
-      });
-      google.accounts.id.prompt()
-    };
-}, [])
-
-  // Callback function for Google login
-  function handleCallbackResponse(response) {
-    console.log("Encoded JWT ID Token" + response.credential);
-    let userObject = jwtDecode(response.credential);
-    console.log(userObject)
-    setUser(authService.googleLogin())
-    
-  }
+  
   
   return (
     <div className='App'>
@@ -45,7 +27,7 @@ function App() {
           />
           <Route
             path='/login'
-            element={<Login user={user} />}
+            element={<Login />}
           />
         </Routes>
     

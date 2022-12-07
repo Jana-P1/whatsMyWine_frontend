@@ -1,10 +1,13 @@
-import GoogleSignInDiv from "../../components/GoogleSignInDiv/GoogleSignInDiv";
+// The login in form includes the login in form and a LINK for new users who want to create their own credentials (email/password)
 
-const Login = ({ user }) => {
-  
+import LoginForm from "../../components/LoginForm/LoginForm";
+import styles from "../Login/Login.module.css"
+const Login = () => {
   return ( 
     <>
-      {/* <div id="buttonDiv"></div> */}
+      <div className={styles.mainContainer}>
+        <LoginForm />
+      </div>
     </>
    );
 }
